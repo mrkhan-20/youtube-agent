@@ -1,0 +1,15 @@
+import axios from "axios";
+
+const API_BASE = "http://localhost:8000";
+
+export const ingestVideo = async (youtubeUrl) => {
+  return axios.post(`${API_BASE}/ingest`, { youtube_url: youtubeUrl });
+};
+
+export const sendChatMessage = async (videoId, message, history) => {
+  return axios.post(`${API_BASE}/chat`, {
+    video_id: videoId,
+    message,
+    history,
+  });
+};
