@@ -29,7 +29,9 @@ def ingest(req: IngestRequest):
         "metadata": {"text": chunk},
     } for i, (emb, chunk) in enumerate(zip(embeddings, chunks))]
 
-    index.delete(namespace=video_id, delete_all=True)
+    namespaces = index.list_namespaces()
+    if video_id in namespaces:
+        index.delete(namespace=video_id, delete_all=True)
     index.upsert(vectors=vectors, namespace=video_id)
 
     return IngestResponse(video_id=video_id, chunks=len(chunks))
