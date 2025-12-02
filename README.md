@@ -1,5 +1,6 @@
 # YouTube Agent
-
+![YouTube Agent](ui/public/image.png)
+![YouTube Agent](ui/public/image2.png)
 A full-stack application for ingesting YouTube video transcripts and chatting with an AI twin that emulates the speaker's personality and knowledge.
 
 ## Prerequisites
